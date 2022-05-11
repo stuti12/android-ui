@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Evenline-ui</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboardtitle">Discover great events at your fingertips</string>
+    <string name="onboardtitle2">Follow your favorites about upcoming events</string>
+    <string name="onboardsubtitle">Find and attend events that fuel their passions. From music festivals, arts, conferences, and fundraisers, to gaming competitions.</string>
+    <string name="onboardsubtitle2">"Find and attend events that fuel their passions. From music festivals, arts, conferences, and fundraisers, to gaming competitions."</string>
+    <string name="btnskip">Skip</string>
+    <string name="btnStart">Get started</string>
+</resources>
