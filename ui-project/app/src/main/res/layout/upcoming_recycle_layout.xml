@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardViewEvent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="@dimen/_15sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageEvent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/upcoming_event_home_recycleimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textDate"
+            style="@style/homeBarTitleSmallText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:text="@string/textDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageEvent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTime"
+            style="@style/homeBarTitleSmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:text="@string/textTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textDate"
+            app:layout_constraintTop_toBottomOf="@id/imageEvent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textSubtitleRecycleView"
+            style="@style/homePopularRecycleViewText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/textTitleSuggestionRecycle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/textDate"
+            app:layout_constraintTop_toBottomOf="@id/textTime" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imageLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:text="@string/textLocation"
+            android:drawableStart="@drawable/ic_map"
+            android:drawablePadding="@dimen/_8sdp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="@id/textSubtitleRecycleView"
+            app:layout_constraintTop_toBottomOf="@id/textSubtitleRecycleView" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textPrice"
+            style="@style/homeBarTitleSmallText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_70ssp"
+            android:background="@color/colorPrimary100"
+            android:text="@string/textPrice"
+            android:textColor="@color/Primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageLocation"
+            app:layout_constraintTop_toBottomOf="@id/textSubtitleRecycleView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+
