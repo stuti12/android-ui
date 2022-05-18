@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainHomeView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.HomeFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleHomeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/textTitleHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/subtitleHomeText"
+            android:layout_width="0dp"
+            style="@style/homeRecycleText"
+            android:layout_height="wrap_content"
+            android:text="@string/textSubtitleHome"
+            app:layout_constraintStart_toStartOf="@id/titleHomeText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleHomeText" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitleHomeText"
+            app:queryHint="@string/searchBar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textUpcomingEvent"
+            style="@style/homeRecycleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/textUpcomingEvent"
+            android:textAlignment="viewStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewPopularEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textUpcomingEvent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageEvent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:src="@drawable/home_screen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textTitle"
+                    style="@style/homeTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_18sdp"
+                    android:text="@string/textTitleRecycle"
+                    app:layout_constraintStart_toEndOf="@id/imageEvent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintStart_toStartOf="@id/textTitle"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonJoin"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:background="@drawable/rounded_button"
+                    android:text="@string/btnjoin"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:textAlignment="center"
+                    app:layout_constraintStart_toEndOf="@id/imageLocation"
+                    app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textRecyclerPopularTitle"
+            android:text="@string/textPopular"
+            style="@style/homeRecycleText"
+            app:layout_constraintTop_toBottomOf="@id/cardViewPopularEvent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_20ssp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewPopular"
+            android:layout_width="0dp"
+            tools:listitem="@layout/upcoming_recycle_layout"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textRecyclerPopularTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textRecyclerSuggestionTitle"
+            android:text="@string/textSuggestion"
+            style="@style/homeRecycleText"
+            android:textAlignment="viewStart"
+            app:layout_constraintTop_toBottomOf="@id/recycleViewPopular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/_20ssp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewSuggestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textRecyclerSuggestionTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

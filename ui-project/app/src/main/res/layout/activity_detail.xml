@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.DetailActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/customToolbar"
+                layout="@layout/custom_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgFavourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_15sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_favourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:src="@drawable/ic_image_home_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textTitle"
+                style="@style/homeTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:text="@string/textTitleRecycle"
+                app:layout_constraintEnd_toEndOf="@id/imgEvent"
+                app:layout_constraintStart_toStartOf="@id/imgEvent"
+                app:layout_constraintTop_toBottomOf="@id/imgEvent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDateDate"
+                style="@style/homeRecycleText"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/textDateDay"
+                app:layout_constraintStart_toStartOf="@id/textTitle"
+                app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDateDay"
+                style="@style/homeRecycleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:text="@string/textDay"
+                app:layout_constraintStart_toEndOf="@id/textDateDate"
+                app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonCalendar"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:background="@drawable/ic_button_calender"
+                app:layout_constraintEnd_toEndOf="@id/imgEvent"
+                app:layout_constraintStart_toEndOf="@id/textDateDay"
+                app:layout_constraintTop_toBottomOf="@id/textTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDateMonth"
+                style="@style/homeRecycleTextLight"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/textDateMonth"
+                app:layout_constraintStart_toStartOf="@id/textDateDate"
+                app:layout_constraintTop_toBottomOf="@id/textDateDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDetailTime"
+                style="@style/homeRecycleTextLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textDetailTime"
+                app:layout_constraintStart_toStartOf="@id/textDateDay"
+                app:layout_constraintTop_toBottomOf="@id/textDateDay" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDetailTitle"
+                style="@style/homeRecycleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textDetailTitle"
+                app:layout_constraintEnd_toEndOf="@id/textTitle"
+                app:layout_constraintStart_toStartOf="@id/textTitle"
+                app:layout_constraintTop_toBottomOf="@id/textDateMonth" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDetailDescription"
+                style="@style/homeRecycleTextLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textDetailDescription"
+                app:layout_constraintEnd_toEndOf="@id/textTitle"
+                app:layout_constraintStart_toStartOf="@id/textTitle"
+                app:layout_constraintTop_toBottomOf="@id/textDetailTitle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDetailPrice"
+                style="@style/homeRecycleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/textDetailPrice"
+                android:textAlignment="viewStart"
+                app:layout_constraintStart_toStartOf="@id/textTitle"
+                app:layout_constraintTop_toBottomOf="@id/textDetailDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textDetailSpot"
+                style="@style/homeRecycleTextLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textSpotLeft"
+                app:layout_constraintEnd_toEndOf="@id/textTitle"
+                app:layout_constraintStart_toStartOf="@id/textTitle"
+                app:layout_constraintTop_toBottomOf="@id/textDetailPrice" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonGetTicket"
+                style="@style/buttonWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/textDetailButton"
+                app:layout_constraintEnd_toEndOf="@id/imgEvent"
+                app:layout_constraintStart_toEndOf="@id/textDetailPrice"
+                app:layout_constraintTop_toBottomOf="@id/textDetailDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
