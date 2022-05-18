@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">Evenline-ui</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboardtitle">Discover great events at your fingertips</string>
+    <string name="onboardtitle2">Follow your favorites about upcoming events</string>
+    <string name="onboardsubtitle">Find and attend events that fuel their passions. From music festivals, arts, conferences, and fundraisers, to gaming competitions.</string>
+    <string name="onboardsubtitle2">"Find and attend events that fuel their passions. From music festivals, arts, conferences, and fundraisers, to gaming competitions."</string>
+    <string name="btnskip">Skip</string>
+    <string name="btnStart">Get started</string>
+    <string name="loginTitle">Hello Again!</string>
+
+    <!--Get started-->
+    <string name="getStartText">Lets Get Started</string>
+    <string name="getStartSubtitle">Sign up or log in to see what happening near you.</string>
+    <string name="continueEmail">Continue with Email</string>
+    <string name="goSignUpText">Don’t have an account? Sign Up</string>
+    <!--Signin-->
+    <string name="loginSubTitile">Welcome Back,You ve been \n missed</string>
+    <string name="etEmail">Email</string>
+    <string name="requreEmailError">Required EmailID</string>
+    <string name="emailError">Invalid Email Address</string>
+    <string name="etPassword">Password</string>
+    <string name="passwordRequireError">Required Password</string>
+    <string name="passwordError">Password not valid should contain Atlease one Alphabet special symbol and a number</string>
+    <string name="ortext">or</string>
+    <string name="forgetPasswordText">Forget Password?</string>
+    <string name="btnSignIn"> Sign In</string>
+    <string name="btnGoogle">Sign In with Google</string>
+    <string name="btnApple">Sign In with Apple</string>
+    <string name="privacyPolicyText">By sign in, I accept the Terms of Service and Community Guidelines and have read Privacy Policy.</string>
+    <string name="privacySpannableText">Terms of Service </string>
+    <string name="privacySpannableText2">   Community Guidelines </string>
+     <string name="privacySpannableText3">    Privacy Policy</string>
+    <string name="loginSuccess">Login Success</string>
+    <string name="loginFail">Login Fails</string>
+    <!-- Signup-->
+    <string name="signupTitle">Create an Account</string>
+    <string name="nametext">Your name</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="requireUserNameError">Required UserName</string>
+
+    <!--forget password-->
+    <string name="forgetTitle">Forgot Password</string>
+    <string name="forgetSubtitle">Please enter the email address associated \n with your account.</string>
+    <string name="sendMeEmailButton">Send Me Email</string>
+    <string name="forgetPasswordMessage">Password Reset link set to your email</string>
+
+    <!--Reset-->
+    <string name="etPasswordHint">Enter Password</string>
+    <string name="etConfirmPasswordHint">Confirm Password</string>
+    <string name="resetPasswordText">Reset Yout Password</string>
+    <string name="resetSubTitle">Please enter a new password for your account.</string>
+    <string name="createnewPasswordButton">Create New Password</string>
+    <string name="passwordNotMatch">Password Not Match</string>
+    <string name="successfulResetText">You have successfully changed your password</string>
+
+    <!--Verification code-->
+    <string name="verifiactionTitle">Verification Code</string>
+    <string name="verificationSubtitle">We have to send the verification to your email mic****@mail.com.</string>
+    <string name="btnVerify">Verify</string>
+    <string name="resetText">Reset Code</string>
+
+    <!--New Password Screen-->
+    <string name="newPasswordText">You have successfully changed your password</string>
+    <string name="btnNewPassword">LogIn</string>
+
+    <!--Home-->
+    <string name="searchBar">Search All Events....</string>
+    <string name="textUpcomingEvent">Upcoming Events</string>
+    <string name="textPopular">Popular Now</string>
+    <string name="textSuggestion">Suggestion for you</string>
+    <string name="textTitleHome">Find events near</string>
+    <string name="textSubtitleHome">California, USA</string>
+    <string name="textTitleRecycle">California Art Festival: 2022 Dana Point 29-30</string>
+    <string name="btnjoin">Join</string>
+    <string name="textDate">Mar 29,2022</string>
+    <string name="textTime">10:00 PM</string>
+    <string name="textRecycleInside">Battles of Dance Party 20s</string>
+    <string name="textPrice">$27.99</string>
+    <string name="textLocation">California, CA</string>
+    <string name="textLocation2">Australia</string>
+    <string name="textLocation3">NewYork, NY</string>
+    <string name="textLocation4">Brooklyn</string>
+    <string name="textTitleSuggestionRecycle">Self love stories: A Journaling Workshop</string>
+    <string name="textTitle2SuggestionRecycle">Creative self care: Guide to Intuitive Watercolor</string>
+    <string name="textTitle3SuggestionRecycle">Daft punk discovery: 20 Years Anniversary Dance Party</string>
+    <string name="textPriceSuggestionRecycle">Free</string>
+    <string name="textPrice2SuggestionRecycle">$25.90</string>
+    <string name="textPrice3SuggestionRecycle">$24.90</string>
+
+    <!-- Detail home-->
+    <string name="textDateDay">29</string>
+    <string name="textDateMonth">Mar</string>
+    <string name="textDay">TuesDay</string>
+    <string name="textDetailTime">10:00 PM-End</string>
+    <string name="textDetailTitle">About this Event</string>
+    <string name="textDetailDescription">Were celebrating our 30th edition of the California Art Festival in CA this Spring so join us at the Building Park in California State University from March 29 - 30, 2022 with our Private View opening on Saturday, March 26!</string>
+    <string name="textDetailPrice">$25.98-$35</string>
+    <string name="textSpotLeft">100 spot Left</string>
+    <string name="textDetailButton">Get a ticket</string>
+</resources>

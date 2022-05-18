@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="verificationViewModel"
+            type="com.example.evenline_ui.authentication.VerificationCodeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".authentication.VerificationCodeActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/customToolbar"
+                    layout="@layout/custom_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:src="@drawable/forget_password_logo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textVerificationTitle"
+                    style="@style/darkTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/verifiactionTitle"
+                    app:layout_constraintEnd_toEndOf="@id/imgLogo"
+                    app:layout_constraintStart_toStartOf="@id/imgLogo"
+                    app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textVerificationSubtitle"
+                    style="@style/lightTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:text="@string/verificationSubtitle"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@id/textVerificationTitle"
+                    app:layout_constraintStart_toStartOf="@id/textVerificationTitle"
+                    app:layout_constraintTop_toBottomOf="@id/textVerificationTitle" />
+
+                <LinearLayout
+                    android:id="@+id/linearInnerEdittexr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textVerificationSubtitle">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tflayoutOtp"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Primary"
+                        app:boxStrokeWidth="0dp"
+                        app:hintEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOtp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_25sdp"
+                            android:text="@={verificationViewModel.otp1}"
+                            android:background="@drawable/edittext_border"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:maxLength="1"
+                            android:padding="@dimen/_13sdp"
+                             />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tflayoutOtp2"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Primary"
+                        app:boxStrokeWidth="0dp"
+                        app:hintEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOtp2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:text="@={verificationViewModel.otp2}"
+                            android:layout_marginTop="@dimen/_25sdp"
+                            android:background="@drawable/edittext_border"
+                            android:textAlignment="center"
+                            android:inputType="number"
+                            android:maxLength="1"
+                            android:padding="@dimen/_13sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tflayoutOtp3"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Primary"
+                        app:boxStrokeWidth="0dp"
+                        app:hintEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOtp3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_25sdp"
+                            android:text="@={verificationViewModel.otp3}"
+                            android:background="@drawable/edittext_border"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:maxLength="1"
+                            android:padding="@dimen/_13sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tflayoutOtp4"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Primary"
+                        app:boxStrokeWidth="0dp"
+                        app:hintEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etOtp4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_25sdp"
+                            android:text="@={verificationViewModel.otp4}"
+                            android:background="@drawable/edittext_border"
+                            android:inputType="number"
+                            android:textAlignment="center"
+                            android:maxLength="1"
+                            android:padding="@dimen/_13sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVerifyPassword"
+                    style="@style/buttonWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_85sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:text="@string/btnVerify"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearInnerEdittexr" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

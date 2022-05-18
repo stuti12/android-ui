@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLoginView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".authentication.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/customToolbar"
+                layout="@layout/custom_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/titleTextView"
+                style="@style/darkTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_52sdp"
+                android:text="@string/loginTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/subtitleTextView"
+                style="@style/lightTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_54sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_54sdp"
+                android:text="@string/loginSubTitile"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@id/titleTextView"
+                app:layout_constraintStart_toStartOf="@id/titleTextView"
+                app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tflayoutEmail"
+                style="@style/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="@id/subtitleTextView"
+                app:layout_constraintStart_toStartOf="@id/subtitleTextView"
+                app:layout_constraintTop_toBottomOf="@id/subtitleTextView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:drawableStart="@drawable/ic_mail"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:hint="@string/etEmail"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/_13sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tflayoutPassword"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/tflayoutEmail"
+                app:layout_constraintStart_toStartOf="@id/tflayoutEmail"
+                app:layout_constraintTop_toBottomOf="@id/tflayoutEmail"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:hint="@string/etPassword"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/_13sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textForgetPassword"
+                style="@style/lightLabelTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:gravity="end"
+                android:text="@string/forgetPasswordText"
+                app:layout_constraintEnd_toEndOf="@id/tflayoutPassword"
+                app:layout_constraintStart_toStartOf="@id/tflayoutPassword"
+                app:layout_constraintTop_toBottomOf="@id/tflayoutPassword" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignIn"
+                style="@style/buttonWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/btnSignIn"
+                app:layout_constraintEnd_toEndOf="@id/textForgetPassword"
+                app:layout_constraintStart_toStartOf="@id/textForgetPassword"
+                app:layout_constraintTop_toBottomOf="@id/textForgetPassword" />
+
+            <View
+                android:id="@+id/orLeft"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_153sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_weight="0.2"
+                android:background="@color/orLine"
+                app:layout_constraintStart_toStartOf="@id/btnSignIn"
+                app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textOr"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:padding="@dimen/_7sdp"
+                android:text="@string/ortext"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@id/orLeft"
+                app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
+            />
+
+            <View
+                android:id="@+id/orRight"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@color/orLine"
+                app:layout_constraintEnd_toStartOf="@id/textOr"
+                app:layout_constraintTop_toBottomOf="@id/btnSignIn" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGoogle"
+                style="@style/socialButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:drawableStart="@drawable/ic_flat_color_icons_google"
+                android:text="@string/btnGoogle"
+                app:layout_constraintEnd_toEndOf="@id/btnSignIn"
+                app:layout_constraintStart_toStartOf="@id/btnSignIn"
+                app:layout_constraintTop_toBottomOf="@id/orRight" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnApple"
+                style="@style/socialButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableStart="@drawable/ic_ant_design_apple_filled"
+                android:text="@string/btnApple"
+                app:layout_constraintEnd_toEndOf="@id/btnGoogle"
+                app:layout_constraintStart_toStartOf="@id/btnGoogle"
+                app:layout_constraintTop_toBottomOf="@id/btnGoogle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textPrivacyPolicy"
+                style="@style/body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:gravity="center_horizontal"
+                android:text="@string/privacyPolicyText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btnApple"
+                app:layout_constraintStart_toStartOf="@id/btnApple"
+                app:layout_constraintTop_toBottomOf="@id/btnApple" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
