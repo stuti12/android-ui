@@ -3,31 +3,32 @@ package com.example.evenline_ui.authentication
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
 import android.text.TextUtils
-import android.text.style.ForegroundColorSpan
 import android.util.Patterns
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.evenline_ui.R
 import com.example.evenline_ui.databinding.ActivityLoginBinding
-import kotlinx.android.synthetic.main.activity_sign_up.tflayoutUserName
+import com.example.evenline_ui.webapi_retrofit.interfaces.ApiInterface
+import com.example.evenline_ui.webapi_retrofit.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
     val bool: Boolean = true
     private lateinit var binding: ActivityLoginBinding
     private lateinit var sharedPreferences: SharedPreferences
+    val signinViewModel: LoginViewModel by viewModels()
 
+    private lateinit var userInstance: ApiInterface
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setData()
-
+        observeData()
         supportActionBar?.hide()
     }
 
@@ -38,33 +39,70 @@ class LoginActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+    private fun observeData() {
+        signinViewModel.logInResult.observe(this) { result ->
+            // dialog.dismiss()
+            Toast.makeText(this@LoginActivity, result, Toast.LENGTH_LONG).show()
+
+        }
+        signinViewModel.email.observe(this) {
+            when {
+                it.toString().isEmpty() -> binding.tflayoutEmail.error =
+                    getString(R.string.requreEmailError)
+                !Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString())
+                    .matches() -> binding.tflayoutEmail.error = getString(R.string.emailError)
+                else -> {
+                    binding.tflayoutEmail.error = null
+                    binding.tflayoutEmail.setEndIconDrawable(R.drawable.ic_check)
+                }
+            }
+        }
+        signinViewModel.isLoggedIn.observe(this) { result ->
+            if (result == true) {
+                // dialog.dismiss()
+                Toast.makeText(
+                    this@LoginActivity,
+                    signinViewModel.logInResult.value,
+                    Toast.LENGTH_LONG
+                ).show()
+                startActivity(Intent(this@LoginActivity, VerificationCodeActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(this@LoginActivity, getString(R.string.loginFail), Toast.LENGTH_LONG)
+                    .show()
+
+            }
+        }
+    }
 
     private fun spannableTextSet() {
-        val spannable = SpannableString(getString(R.string.privacyPolicyText))
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            spannable.setSpan(
-                ForegroundColorSpan(getColor(R.color.Spannable)),
-                25, // start
-                42, // end
-                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-            )
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            spannable.setSpan(
-                ForegroundColorSpan(getColor(R.color.Spannable)),
-                46, // start
-                66, // end
-                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-            )
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            spannable.setSpan(
-                ForegroundColorSpan(getColor(R.color.Spannable)),
-                80, // start
-                95, // end
-                Spannable.SPAN_EXCLUSIVE_INCLUSIVE
-            )
-            binding.textPrivacyPolicy.text = spannable
+        binding.textPrivacyPolicy.makeLinks(Pair(
+            getString(R.string.privacySpannableText),
+            View.OnClickListener {
+                Toast.makeText(this@LoginActivity, "Clicked", Toast.LENGTH_LONG).show()
+            }), Pair(getString(R.string.privacySpannableText2), View.OnClickListener {
+            Toast.makeText(this@LoginActivity, "Clicked", Toast.LENGTH_LONG).show()
+        }), Pair(getString(R.string.privacySpannableText3), View.OnClickListener {
+            Toast.makeText(this@LoginActivity, "Clicked", Toast.LENGTH_LONG).show()
+        })
+        )
+    }
+
+    fun signInButtonClick(view: View) {
+        if (signinViewModel.performValidation()) {
+            signinViewModel.signInApiCall()
+//            val intent = Intent(this@LoginActivity, VerificationCodeActivity::class.java)
+//            startActivity(intent)
+//            finish()
+            val editor: SharedPreferences.Editor = sharedPreferences.edit()
+            editor.putBoolean("isLogin", true)
+            editor.apply()
+        } else {
+            Toast.makeText(
+                this@LoginActivity,
+                getString(R.string.loginFail),
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
@@ -72,28 +110,8 @@ class LoginActivity : AppCompatActivity() {
         spannableTextSet()
         sharedPreferences = this.getSharedPreferences("sharedPreference", Context.MODE_PRIVATE)
         binding.apply {
-
-            btnSignIn.setOnClickListener {
-                if (validationSuccess()) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        getString(R.string.loginSuccess),
-                        Toast.LENGTH_LONG
-                    ).show()
-                    val intent = Intent(this@LoginActivity, VerificationCodeActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                    val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                    editor.putBoolean("isLogin", true)
-                    editor.apply()
-                } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        getString(R.string.loginFail),
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
+            lifecycleOwner = this@LoginActivity
+            viewmodel = signinViewModel
             textForgetPassword.setOnClickListener {
                 val intent = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
                 startActivity(intent)
@@ -103,42 +121,6 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-    }
-
-    private fun validationSuccess(): Boolean {
-        binding.apply {
-            if (etEmail.text.toString().isEmpty()) {
-                tflayoutUserName.error = getString(R.string.requireUserNameError)
-                tflayoutUserName.requestFocus()
-                return false
-            } else if (!isValidEmail(etEmail.text.toString())) {
-                tflayoutEmail.error = getString(R.string.emailError)
-                tflayoutEmail.requestFocus()
-                return false
-            } else if (etPassword.text.toString().trim() == "") {
-                tflayoutPassword.error = getString(R.string.passwrdError)
-                tflayoutPassword.requestFocus()
-                return false
-            } else if (bool != isValidPassword(etPassword.text.toString())) {
-                tflayoutPassword.error = getString(R.string.passwordError)
-                tflayoutPassword.requestFocus()
-                return false
-            } else {
-                tflayoutEmail.error = null
-                tflayoutPassword.error = null
-                return true
-            }
-            return true
-        }
-    }
-
-    private fun isValidPassword(password: String?): Boolean {
-        password?.let {
-            val passwordPattern =
-                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
-            val passwordMatcher = Regex(passwordPattern)
-            return passwordMatcher.find(password) != null
-        } ?: return false
     }
 
     private fun isValidEmail(email: String): Boolean {

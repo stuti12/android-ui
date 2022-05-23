@@ -29,6 +29,9 @@
     <string name="btnGoogle">Sign In with Google</string>
     <string name="btnApple">Sign In with Apple</string>
     <string name="privacyPolicyText">By sign in, I accept the Terms of Service and Community Guidelines and have read Privacy Policy.</string>
+    <string name="privacySpannableText">Terms of Service</string>
+    <string name="privacySpannableText2">Community Guidelines</string>
+    <string name="privacySpannableText3">Privacy Policy</string>
     <string name="loginSuccess">Login Success</string>
     <string name="loginFail">Login Fails</string>
     <!-- Signup-->
@@ -97,4 +100,7 @@
     <string name="textDetailPrice">$25.98-$35</string>
     <string name="textSpotLeft">100 spot Left</string>
     <string name="textDetailButton">Get a ticket</string>
+
+    <!-- Webapi retrofit-->
+    <string name="for_loading">Loading...</string>
 </resources>
