@@ -4,12 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import androidx.annotation.RequiresApi
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.evenline_ui.R
 import com.example.evenline_ui.databinding.ActivityGetStartedBinding
 
@@ -26,9 +26,17 @@ class GetStartedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setListener()
-
+        spannableTextSet()
     }
-
+    private fun spannableTextSet() {
+        binding.textGotoSignUp.makeLinks(Pair(
+            getString(R.string.goToSignUpSpannableText),
+            View.OnClickListener {
+                val intent = Intent(this@GetStartedActivity, SignUpActivity::class.java)
+                startActivity(intent)
+            })
+        )
+    }
     private fun setListener() {
         supportActionBar?.hide()
 

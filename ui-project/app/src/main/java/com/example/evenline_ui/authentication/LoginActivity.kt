@@ -91,9 +91,7 @@ class LoginActivity : AppCompatActivity() {
     fun signInButtonClick(view: View) {
         if (signinViewModel.performValidation()) {
             signinViewModel.signInApiCall()
-//            val intent = Intent(this@LoginActivity, VerificationCodeActivity::class.java)
-//            startActivity(intent)
-//            finish()
+
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putBoolean("isLogin", true)
             editor.apply()

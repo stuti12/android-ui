@@ -4,7 +4,7 @@
 
     <data>
         <variable
-            name="verificationViewModel"
+            name="viewModel"
             type="com.example.evenline_ui.authentication.VerificationCodeViewModel" />
     </data>
 
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_25sdp"
-                            android:text="@={verificationViewModel.otp1}"
+                            android:text="@={viewModel.otp1}"
                             android:background="@drawable/edittext_border"
                             android:inputType="number"
                             android:textAlignment="center"
@@ -116,7 +116,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
-                            android:text="@={verificationViewModel.otp2}"
+                            android:text="@={viewModel.otp2}"
                             android:layout_marginTop="@dimen/_25sdp"
                             android:background="@drawable/edittext_border"
                             android:textAlignment="center"
@@ -142,7 +142,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_25sdp"
-                            android:text="@={verificationViewModel.otp3}"
+                            android:text="@={viewModel.otp3}"
                             android:background="@drawable/edittext_border"
                             android:inputType="number"
                             android:textAlignment="center"
@@ -167,7 +167,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_25sdp"
-                            android:text="@={verificationViewModel.otp4}"
+                            android:text="@={viewModel.otp4}"
                             android:background="@drawable/edittext_border"
                             android:inputType="number"
                             android:textAlignment="center"
